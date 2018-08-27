@@ -40,9 +40,9 @@ module.exports = {
         await db.collection('locations').update({ _id: location._id }, location);
       }
       
-      await db.collection('locations').updateMany({}, { $unset: { title: 1, coordinates: 1, opening_hours: 1 }});
-
       await db.collection('locations').dropIndex('title_text');
+
+      await db.collection('locations').updateMany({}, { $unset: { title: 1, coordinates: 1, opening_hours: 1 }});
 
       next();
     });

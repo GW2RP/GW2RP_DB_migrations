@@ -32,10 +32,10 @@ module.exports = {
         await db.collection('users').update({ _id: user._id }, user);
       }
       
-      await db.collection('users').updateMany({}, { $unset: { username: 1, status: 1, subscriptions: 1, validation_token: 1 }});
-      
       await db.collection('users').dropIndex('username_text');
       await db.collection('users').dropIndex('username_1');
+
+      await db.collection('users').updateMany({}, { $unset: { username: 1, status: 1, subscriptions: 1, validation_token: 1 }});
 
       next();
     });

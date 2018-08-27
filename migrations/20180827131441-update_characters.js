@@ -52,10 +52,10 @@ module.exports = {
         await db.collection('characters').update({ _id: character._id }, character);
       }
       
-      await db.collection('characters').updateMany({}, { $unset: { sheet: 1, history: 1 }});
-
       await db.collection('characters').dropIndex('name_text');
       await db.collection('characters').dropIndex('name_1');
+
+      await db.collection('characters').updateMany({}, { $unset: { sheet: 1, history: 1 }});
 
       next();
     });

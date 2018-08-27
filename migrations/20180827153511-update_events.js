@@ -44,10 +44,10 @@ module.exports = {
 
         await db.collection('events').update({ _id: event._id }, event);
       }
-      
-      await db.collection('events').updateMany({}, { $unset: { title: 1, coordinates: 1, dates: 1 }});
 
       await db.collection('events').dropIndex('title_text');
+      
+      await db.collection('events').updateMany({}, { $unset: { title: 1, coordinates: 1, dates: 1 }});
 
       next();
     });
