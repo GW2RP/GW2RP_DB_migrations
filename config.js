@@ -10,7 +10,7 @@ module.exports = {
     url: 'mongodb://localhost:27017',
 
     // TODO Change this to your database name:
-    databaseName: "gw2rp",
+    databaseName: "gw2rp_api",
 
     options: {
       useNewUrlParser: true, // removes a deprecation warning when connecting
